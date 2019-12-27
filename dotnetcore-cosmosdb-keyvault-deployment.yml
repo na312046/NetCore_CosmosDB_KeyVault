@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: azure-cosmos-front
-        image: acrcosmosdemo.azurecr.io/na312046/netcore_cosmosdb_keyvault:#{Build.BuildId}#
+        image: acrcosmosdemo.azurecr.io/na312046/netcore_cosmosdb_keyvault:11
         ports:
         - containerPort: 80
 ---
