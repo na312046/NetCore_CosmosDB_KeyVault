@@ -1,0 +1,31 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: azure-cosmos-front
+spec:
+  selector:
+    matchLabels:
+      app: azure-cosmos-front
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: azure-cosmos-front
+    spec:
+      containers:
+      - name: azure-cosmos-front
+        image: acrcosmosdemo.azurecr.io/dotnetcorecosmoskeyvault:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-cosmos-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: azure-cosmos-front
