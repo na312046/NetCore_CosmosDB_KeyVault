@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>a47fab65-2f0a-4cbd-b381-5c959b4ce2dd</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
+    <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Startup_bkp.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".dockerignore" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
